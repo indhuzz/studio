@@ -3,7 +3,7 @@
 /**
  * @fileOverview A flow for suggesting a new meal.
  * 
- * - suggestMeal - A function that suggests a new meal and generates an image for it.
+ * - suggestMeal - A function that suggests a new meal and its ingredients.
  * - SuggestMealOutput - The return type for the suggestMeal function.
  */
 
@@ -13,7 +13,7 @@ import { z } from 'genkit';
 const SuggestMealOutputSchema = z.object({
     name: z.string().describe('The name of the suggested meal.'),
     description: z.string().describe('A short, appetizing description of the meal.'),
-    image: z.string().describe("A data URI of a generated image for the meal. The image should be photorealistic. The format should be 'data:image/png;base64,<encoded_data>'."),
+    ingredients: z.array(z.string()).describe('A list of key ingredients for the meal.'),
 });
 export type SuggestMealOutput = z.infer<typeof SuggestMealOutputSchema>;
 
@@ -25,6 +25,18 @@ const mealIdeaPrompt = ai.definePrompt({
     name: 'mealIdeaPrompt',
     output: { schema: z.object({ name: z.string(), description: z.string() }) },
     prompt: 'Suggest a new, creative, and delicious meal item for a canteen menu. Provide a name and a short, appetizing description.',
+});
+
+const ingredientsPrompt = ai.definePrompt({
+    name: 'ingredientsPrompt',
+    input: { schema: z.object({ name: z.string(), description: z.string() }) },
+    output: { schema: z.object({ ingredients: z.array(z.string()) }) },
+    prompt: `Based on the following meal, provide a list of its key ingredients.
+    
+    Meal Name: {{{name}}}
+    Description: {{{description}}}
+    
+    List the ingredients clearly.`,
 });
 
 
@@ -39,20 +51,15 @@ const suggestMealFlow = ai.defineFlow(
             throw new Error('Could not generate a meal idea.');
         }
 
-        const { media } = await ai.generate({
-            model: 'googleai/imagen-4.0-fast-generate-001',
-            prompt: `A photorealistic image of ${mealIdea.name}: ${mealIdea.description}`,
-        });
-
-        const imageUrl = media.url;
-        if (!imageUrl) {
-            throw new Error('Could not generate an image for the meal.');
+        const { output: ingredients } = await ingredientsPrompt(mealIdea);
+        if (!ingredients) {
+            throw new Error('Could not generate ingredients for the meal.');
         }
         
         return {
             name: mealIdea.name,
             description: mealIdea.description,
-            image: imageUrl
+            ingredients: ingredients.ingredients,
         };
     }
 );

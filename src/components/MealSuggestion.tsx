@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { Loader2, Wand2 } from 'lucide-react';
+import { Loader2, Wand2, ChefHat } from 'lucide-react';
 import { suggestMeal, type SuggestMealOutput } from '@/ai/flows/suggest-meal-flow';
-import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Badge } from './ui/badge';
 
 export default function MealSuggestion() {
     const [suggestion, setSuggestion] = useState<SuggestMealOutput | null>(null);
@@ -53,27 +53,40 @@ export default function MealSuggestion() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -50, scale: 0.9 }}
                         transition={{ duration: 0.5, ease: 'easeInOut' }}
-                        className="mt-8 max-w-sm mx-auto"
+                        className="mt-8 max-w-md mx-auto"
                     >
-                        <Card className="overflow-hidden text-left">
+                        <Card className="overflow-hidden text-left shadow-lg">
                             <CardHeader>
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 0.2, duration: 0.5 }}
-                                >
-                                    <Image
-                                        src={suggestion.image}
-                                        alt={suggestion.name}
-                                        width={400}
-                                        height={300}
-                                        className="object-cover w-full h-48 rounded-t-lg"
-                                    />
-                                </motion.div>
+                                <CardTitle className="font-headline text-2xl mb-2 flex items-center gap-2">
+                                    <ChefHat className="h-6 w-6 text-primary" />
+                                    {suggestion.name}
+                                </CardTitle>
+                                <CardDescription>{suggestion.description}</CardDescription>
                             </CardHeader>
                             <CardContent>
-                                <CardTitle className="font-headline text-xl mb-2">{suggestion.name}</CardTitle>
-                                <CardDescription>{suggestion.description}</CardDescription>
+                                <h4 className="font-semibold mb-3">Key Ingredients:</h4>
+                                <motion.div 
+                                    className="flex flex-wrap gap-2"
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={{
+                                        visible: { 
+                                            transition: { staggerChildren: 0.1, delayChildren: 0.3 }
+                                        }
+                                    }}
+                                >
+                                    {suggestion.ingredients.map((ingredient, i) => (
+                                        <motion.div
+                                            key={i}
+                                            variants={{
+                                                hidden: { y: 20, opacity: 0 },
+                                                visible: { y: 0, opacity: 1 }
+                                            }}
+                                        >
+                                            <Badge variant="secondary" className="text-sm">{ingredient}</Badge>
+                                        </motion.div>
+                                    ))}
+                                </motion.div>
                             </CardContent>
                         </Card>
                     </motion.div>
