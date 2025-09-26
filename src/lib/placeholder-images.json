@@ -1,3 +1,58 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "breakfast1",
+      "description": "A top-down view of a slice of avocado toast on a dark plate, garnished with spices.",
+      "imageUrl": "https://images.unsplash.com/photo-1704545229893-4f1bb5ef16a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhdm9jYWRvJTIwdG9hc3R8ZW58MHx8fHwxNzU4Nzk0NTkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "avocado toast"
+    },
+    {
+      "id": "breakfast2",
+      "description": "A stack of fluffy pancakes topped with fresh blueberries and raspberries.",
+      "imageUrl": "https://images.unsplash.com/flagged/photo-1557609786-fd36193db6e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGFuY2FrZXMlMjBiZXJyaWVzfGVufDB8fHx8MTc1ODg3MTc3M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pancakes berries"
+    },
+    {
+      "id": "breakfast3",
+      "description": "A breakfast burrito cut in half, showing the filling of eggs, cheese, and sausage.",
+      "imageUrl": "https://images.unsplash.com/photo-1647545401800-bd8f77e670ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxicmVha2Zhc3QlMjBidXJyaXRvfGVufDB8fHx8MTc1ODc4NzMyOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "breakfast burrito"
+    },
+    {
+      "id": "lunch1",
+      "description": "A fresh chicken caesar salad in a white bowl.",
+      "imageUrl": "https://images.unsplash.com/photo-1580013759032-c96505e24c1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaGlja2VuJTIwc2FsYWR8ZW58MHx8fHwxNzU4ODQ2NTcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chicken salad"
+    },
+    {
+      "id": "lunch2",
+      "description": "A juicy classic cheeseburger with lettuce and tomato on a wooden board.",
+      "imageUrl": "https://images.unsplash.com/photo-1734773343286-99e5068b175b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjbGFzc2ljJTIwYnVyZ2VyfGVufDB8fHx8MTc1ODg3MTc3Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "classic burger"
+    },
+    {
+      "id": "lunch3",
+      "description": "A whole margherita pizza with fresh basil on a rustic background.",
+      "imageUrl": "https://images.unsplash.com/photo-1680405620826-83b0f0f61b28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYXJnaGVyaXRhJTIwcGl6emF8ZW58MHx8fHwxNzU4ODEyODY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "margherita pizza"
+    },
+    {
+      "id": "snack1",
+      "description": "A cone of crispy golden french fries.",
+      "imageUrl": "https://images.unsplash.com/photo-1598998834333-c0b91bc9b2a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmcmVuY2glMjBmcmllc3xlbnwwfHx8fDE3NTg4MTcxNjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "french fries"
+    },
+    {
+      "id": "snack2",
+      "description": "A close-up of a chocolate chip cookie with melted chocolate chips.",
+      "imageUrl": "https://images.unsplash.com/photo-1519682214708-973477a2529a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaG9jb2xhdGUlMjBjb29raWV8ZW58MHx8fHwxNzU4ODI3MDM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chocolate cookie"
+    },
+    {
+      "id": "snack3",
+      "description": "A vibrant pink fruit smoothie in a glass with a straw.",
+      "imageUrl": "https://images.unsplash.com/photo-1665556370088-db19c531dabf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmcnVpdCUyMHNtb290aGllfGVufDB8fHx8MTc1ODgyNzg0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fruit smoothie"
+    }
+  ]
 }
