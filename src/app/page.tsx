@@ -2,7 +2,7 @@ import { menuItems } from '@/lib/data';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import MenuItemCard from '@/components/MenuItemCard';
 import { Separator } from '@/components/ui/separator';
-import Recommendations from '@/components/Recommendations';
+import MealSuggestion from '@/components/MealSuggestion';
 
 export default function Home() {
   const breakfastItems = menuItems.filter(item => item.category === 'Breakfast');
@@ -20,7 +20,7 @@ export default function Home() {
         </p>
       </div>
 
-      <Recommendations />
+      <MealSuggestion />
       <Separator className="my-12" />
 
       <Tabs defaultValue="Lunch" className="w-full">
